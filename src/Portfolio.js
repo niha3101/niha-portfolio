@@ -79,7 +79,7 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="max-w-3xl">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800">Hi, I'm Niharika Prathi, a skilled data enthusiast 👋</h2>
+          <h2 className="text-4xl font-bold mb-6 text-gray-800">Hi, This is Niharika Prathi 👋</h2>
           <p className="text-xl text-gray-600 mb-8">
             Data Engineer & Data Scientist skilled in Python, SQL, and building scalable data solutions.
             Passionate about machine learning, predictive analytics, and automation.
