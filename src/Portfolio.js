@@ -81,11 +81,10 @@ const Portfolio = () => {
         <div className="max-w-3xl">
           <h2 className="text-4xl font-bold mb-6 text-gray-800">Hi, This is Niharika Prathi 👋</h2>
           <p className="text-xl text-gray-600 mb-8">
-            Data Engineer & Data Scientist skilled in Python, SQL, and building scalable data solutions.
-            Passionate about machine learning, predictive analytics, and automation.
+            I'm a Data Engineer & Data Scientist with a knack for building scalable data solutions that make an impact. With hands-on experience in Python, SQL, and AWS, I thrive on solving complex data challenges with a splash of creativity. Passionate about machine learning, predictive analytics, and automation – and yes, I promise I can explain complex topics in an easy-to-understand way (or a meme!). Let's connect!
           </p>
           <div className="flex space-x-4">
-            <a href="https://github.com/your-github" className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+            <a href="https://github.com/niha3101" className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900">
               <Github size={20} />
               <span>GitHub</span>
             </a>
@@ -153,11 +152,12 @@ const Portfolio = () => {
       <section id="contact" className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-4">
           <h3 className="text-2xl font-bold mb-12 text-gray-800">Get in Touch</h3>
-          <p className="text-gray-600 mb-8">Feel free to reach out for collaborations or opportunities.</p>
+          <p className="text-gray-600 mb-8">Feel free to reach out for collaborations, opportunities, or just a friendly chat about tech!</p>
           <a href="mailto:niharikaprathi3@gmail.com" className="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
             <Mail size={20} />
             <span>Email Me</span>
           </a>
+          <p className="mt-4 text-gray-600">Or reach me directly at: <span className="font-semibold">331-814-7977</span></p>
         </div>
       </section>
     </div>
