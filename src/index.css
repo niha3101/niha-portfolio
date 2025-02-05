@@ -155,7 +155,6 @@ section#projects h3 {
   color: #2b6cb0;
 }
 
-
 /* Skills Section */
 section#skills {
   background-color: #edf2f7;
@@ -187,71 +186,6 @@ section#skills h3 {
   transform: scale(1.05);
 }
 
-/* Achievements Section */
-section#Achievements {
-  background-color: #fff;
-  padding: 60px 24px;
-}
-
-section#Achievements h4 {
-  font-size: 32px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.Achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
-}
-
-.Achievements-card {
-  background-color: #f7fafc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.Achievements-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.Achievements-card h4 {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.Achievements-card p {
-  color: #4a5568;
-  margin-bottom: 16px;
-}
-
-.Achievements-card .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.Achievements-card .tags .tag {
-  background-color: #e2e8f0;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  color: #4a5568;
-}
-
-.Achievements-card .view-Achievements {
-  display: inline-flex;
-  align-items: center;
-  color: #3182ce;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.Achievements-card .view-Achievements:hover {
-  color: #2b6cb0;
-}
 /* Contact Section */
 section#contact {
   background-color: #fff;
