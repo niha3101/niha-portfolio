@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 
-const Home = () => {
+const Home = ({ setActiveSection }) => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-10 flex flex-col justify-center items-center text-center">
       <motion.h1
@@ -22,11 +22,15 @@ const Home = () => {
           <Linkedin size={24} />
         </a>
       </div>
+      <div className="mt-6 space-x-4">
+        <button onClick={() => setActiveSection("projects")} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">View Projects</button>
+        <button onClick={() => setActiveSection("contact")} className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Contact Me</button>
+      </div>
     </div>
   );
 };
 
-const Projects = () => {
+const Projects = ({ setActiveSection }) => {
   const projects = [
     {
       title: "Sensor Data Aggregation & Visualization System",
@@ -65,11 +69,12 @@ const Projects = () => {
           </motion.div>
         ))}
       </div>
+      <button onClick={() => setActiveSection("home")} className="mt-6 px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">Back</button>
     </div>
   );
 };
 
-const Contact = () => {
+const Contact = ({ setActiveSection }) => {
   return (
     <div className="py-20 px-10 text-center">
       <h2 className="text-3xl font-bold">Get in Touch</h2>
@@ -78,16 +83,19 @@ const Contact = () => {
         <Mail size={20} />
         <span>Email Me</span>
       </a>
+      <button onClick={() => setActiveSection("home")} className="mt-6 px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 block mx-auto">Back</button>
     </div>
   );
 };
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState("home");
+
   return (
     <div>
-      <Home />
-      <Projects />
-      <Contact />
+      {activeSection === "home" && <Home setActiveSection={setActiveSection} />}
+      {activeSection === "projects" && <Projects setActiveSection={setActiveSection} />}
+      {activeSection === "contact" && <Contact setActiveSection={setActiveSection} />}
     </div>
   );
 }
