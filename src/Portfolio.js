@@ -6,7 +6,7 @@ import "./Portfolio.css";
 const Home = ({ setActiveSection }) => (
   <div className="home-container">
     <motion.h1 className="title" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-      Hi, I'm Niharika Prathi
+      Hi, I'm Niharika Prathi!
     </motion.h1>
     <p className="subtitle">Data Engineer | Data Scientist | Developer</p>
     <div className="social-links">
