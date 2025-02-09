@@ -10,7 +10,7 @@ const Portfolio = () => {
       title: "Sensor Data Aggregation System",
       description: "Developed a system to collect and process sensor data using Python and APIs",
       tags: ["Python", "API", "Data Visualization"],
-      type: "Data Engineering"
+      type: "Data Engineering and IOT"
     },
     {
       title: "Medical Chatbot",
