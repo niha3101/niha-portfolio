@@ -92,21 +92,23 @@ const Portfolio = () => {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-50 text-gray-900">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-md' : 'bg-white/95'
       }`}>
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <a href="#home" className="text-2xl font-bold">
               Niharika Prathi
-            </h1>
-            <div className="hidden md:flex space-x-8">
+            </a>
+            
+            {/* Desktop Navigation */}
+            <div className="flex space-x-8">
               {['Home', 'Projects', 'Skills', 'Experience', 'Contact'].map(section => (
                 <a
                   key={section}
                   href={`#${section.toLowerCase()}`}
                   onClick={() => setActiveSection(section.toLowerCase())}
-                  className={`text-gray-600 hover:text-blue-600 transition-colors duration-300 ${
-                    activeSection === section.toLowerCase() ? 'text-blue-600 font-semibold' : ''
+                  className={`text-gray-600 hover:text-blue-600 transition-all duration-300 text-base ${
+                    activeSection === section.toLowerCase() ? 'text-blue-600 font-medium' : ''
                   }`}
                 >
                   {section}
