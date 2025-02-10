@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Database, ChevronDown } from 'lucide-react';
-
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, Code, Database, ChevronDown, Phone, Briefcase } from 'lucide-react';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const projects = [
     {
@@ -27,11 +35,11 @@ const Portfolio = () => {
   ];
 
   const skills = [
-    { name: "Python", level: "Expert" },
-    { name: "SQL", level: "Advanced" },
-    { name: "AWS", level: "Proficient" },
-    { name: "Machine Learning", level: "Advanced" },
-    { name: "Data Engineering", level: "Expert" }
+    { name: "Python", level: "Expert", percentage: 90 },
+    { name: "SQL", level: "Advanced", percentage: 85 },
+    { name: "AWS", level: "Proficient", percentage: 75 },
+    { name: "Machine Learning", level: "Advanced", percentage: 85 },
+    { name: "Data Engineering", level: "Expert", percentage: 90 }
   ];
 
   const workExperience = [
@@ -63,14 +71,14 @@ const Portfolio = () => {
       : projects.filter(project => project.type === activeFilter);
 
     return filteredProjects.map((project, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-md p-6 transform transition hover:scale-105">
+      <div key={index} className="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
         <h4 className="text-xl font-semibold mb-3">{project.title}</h4>
         <p className="text-gray-600 mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, tagIndex) => (
             <span 
               key={tagIndex} 
-              className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+              className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-200 transition-colors duration-300"
             >
               {tag}
             </span>
@@ -81,49 +89,58 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-50 text-gray-900">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white shadow-md z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Niharika Prathi</h1>
-          <div className="space-x-6">
-            {['Home', 'Projects', 'Skills', 'Experience', 'Contact'].map(section => (
-              <a 
-                key={section} 
-                href={`#${section.toLowerCase()}`}
-                onClick={() => setActiveSection(section.toLowerCase())}
-                className={`text-gray-600 hover:text-blue-600 ${activeSection === section.toLowerCase() ? 'text-blue-600 font-bold' : ''}`}
-              >
-                {section}
-              </a>
-            ))}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      }`}>
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Niharika Prathi
+            </h1>
+            <div className="hidden md:flex space-x-8">
+              {['Home', 'Projects', 'Skills', 'Experience', 'Contact'].map(section => (
+                <a
+                  key={section}
+                  href={`#${section.toLowerCase()}`}
+                  onClick={() => setActiveSection(section.toLowerCase())}
+                  className={`text-gray-600 hover:text-blue-600 transition-colors duration-300 ${
+                    activeSection === section.toLowerCase() ? 'text-blue-600 font-semibold' : ''
+                  }`}
+                >
+                  {section}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Home/Hero Section */}
-      <section id="home" className="pt-24 pb-16 max-w-6xl mx-auto px-4 flex items-center">
-        <div className="w-full flex items-center">
-          <div className="w-2/3">
-            <h2 className="text-4xl font-bold mb-4">
+      {/* Hero Section */}
+      <section id="home" className="pt-32 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center md:text-left">
+            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-gradient">
               Hi, I'm Niharika Prathi 👋
             </h2>
-            <p className="text-xl text-gray-700 mb-6">
-              Data Engineer & Data Scientist | Python | SQL | Machine Learning
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+              Passionate Data Engineer & Data Scientist specializing in building robust data pipelines
+              and deriving meaningful insights through machine learning.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/in/niharika-prathi/" 
-                target="_blank" 
-                className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <a
+                href="https://www.linkedin.com/in/niharika-prathi/"
+                target="_blank"
+                className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
               >
-                <Linkedin className="mr-2" /> LinkedIn
+                <Linkedin className="mr-2" size={20} /> Connect on LinkedIn
               </a>
-              <a 
-                href="mailto:niharikaprathi3@gmail.com" 
-                className="flex items-center bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300"
+              <a
+                href="mailto:niharikaprathi3@gmail.com"
+                className="flex items-center bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:-translate-y-1"
               >
-                <Mail className="mr-2" /> Contact
+                <Mail className="mr-2" size={20} /> Get in Touch
               </a>
             </div>
           </div>
@@ -131,52 +148,62 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="bg-gray-100 py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h3 className="text-3xl font-bold mb-8 text-center">Featured Projects</h3>
-          <div className="flex justify-center mb-8">
+      <section id="projects" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Featured Projects
+          </h3>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {['All', 'Data Engineering', 'AI/ML', 'Web Development'].map(filter => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`mx-2 px-4 py-2 rounded-full ${activeFilter === filter ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                  activeFilter === filter
+                    ? 'bg-blue-600 text-white shadow-lg transform -translate-y-1'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
               >
                 {filter}
               </button>
             ))}
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {renderProjects()}
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h3 className="text-3xl font-bold mb-8 text-center">Technical Skills</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Programming & Tools</h4>
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={index} className="bg-white shadow-md rounded-lg p-4">
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-gray-600">{skill.level}</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div 
-                        className="bg-blue-600 h-2.5 rounded-full" 
-                        style={{width: skill.level === 'Expert' ? '90%' : skill.level === 'Advanced' ? '75%' : '60%'}}>
-                      </div>
-                    </div>
+      <section id="skills" className="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Technical Skills
+          </h3>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h4 className="text-xl font-semibold mb-6 flex items-center">
+                <Code className="mr-2 text-blue-600" /> Programming & Tools
+              </h4>
+              {skills.map((skill, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="flex justify-between mb-2">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-blue-600">{skill.level}</span>
                   </div>
-                ))}
-              </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000"
+                      style={{ width: `${skill.percentage}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
             <div>
-              <h4 className="text-xl font-semibold mb-4">Certifications</h4>
+              <h4 className="text-xl font-semibold mb-6 flex items-center">
+                <Database className="mr-2 text-blue-600" /> Certifications
+              </h4>
               <div className="space-y-4">
                 {[
                   "Microsoft Python Certified",
@@ -184,7 +211,10 @@ const Portfolio = () => {
                   "AWS Fundamentals",
                   "Data Science Orientation"
                 ].map((cert, index) => (
-                  <div key={index} className="bg-white shadow-md rounded-lg p-4 flex items-center">
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg shadow-md p-6 flex items-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  >
                     <Code className="mr-4 text-blue-600" />
                     <span>{cert}</span>
                   </div>
@@ -196,20 +226,31 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="bg-gray-100 py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h3 className="text-3xl font-bold mb-8 text-center">Professional Experience</h3>
-          <div className="space-y-6">
+      <section id="experience" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Professional Experience
+          </h3>
+          <div className="space-y-8">
             {workExperience.map((job, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h4 className="text-xl font-semibold">{job.company}</h4>
+              <div
+                key={index}
+                className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-md p-8 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex flex-wrap justify-between items-center mb-4">
+                  <h4 className="text-xl font-semibold text-blue-600">{job.company}</h4>
                   <span className="text-gray-600">{job.period}</span>
                 </div>
-                <h5 className="text-lg mb-3">{job.role}</h5>
-                <ul className="list-disc list-inside text-gray-700">
+                <h5 className="text-lg mb-4 flex items-center">
+                  <Briefcase className="mr-2 text-gray-600" size={18} />
+                  {job.role}
+                </h5>
+                <ul className="space-y-2">
                   {job.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
+                    <li key={index} className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      {highlight}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -219,22 +260,45 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16">
+      <section id="contact" className="py-16 bg-gradient-to-r from-blue-50 to-purple-50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-8">Get in Touch</h3>
-          <div className="flex justify-center space-x-6">
+          <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Get in Touch
+          </h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8">
             <a 
-              href="mailto:niharikaprathi3@gmail.com" 
-              className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+              href="tel:331-814-7977"
+              className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <Mail className="mr-2" /> Email Me
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <Phone className="text-blue-600" />
+              </div>
+              <h4 className="font-semibold mb-2">Phone</h4>
+              <p className="text-gray-600">331-814-7977</p>
             </a>
             <a 
-              href="https://www.linkedin.com/in/niharika-prathi/" 
-              target="_blank" 
-              className="flex items-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300"
+              href="mailto:niharikaprathi3@gmail.com"
+              className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <Linkedin className="mr-2" /> LinkedIn Profile
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <Mail className="text-purple-600" />
+              </div>
+              <h4 className="font-semibold mb-2">Email</h4>
+              <p className="text-gray-600">niharikaprathi3@gmail.com</p>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/niharika-prathi/"
+              target="_blank"
+              className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                <Linkedin className="text-indigo-600" />
+              </div>
+              <h4 className="font-semibold mb-2">LinkedIn</h4>
+              <p className="text-blue-600"></p>
             </a>
           </div>
         </div>
