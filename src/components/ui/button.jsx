@@ -1,4 +1,3 @@
-// src/components/ui/button.jsx
 import React from 'react';
 
 const Button = ({ children, variant = 'primary', className = '', ...props }) => {
