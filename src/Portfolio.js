@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code, Database, ChevronDown, Briefcase, Phone } from 'lucide-react';
-
+import sensorDataImg from './assets/Sensor Data.jpg';
+import medicalChatbotImg from './assets/Medical Chatbot.jpg';
+import covidSystemImg from './assets/COVID-19.jpg';
+import profilePic from './assets/profile-pic.jpeg'; 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeSection, setActiveSection] = useState('home');
@@ -18,21 +21,21 @@ const Portfolio = () => {
     {
       title: "Sensor Data Aggregation & Visualization System",
       description: "Developed a system to collect and process sensor data using Python and APIs, presenting insights through a web-based GUI",
-      image: "/api/placeholder/400/200",
+      image: sensorDataImg,
       tags: ["Python", "APIs", "Data Visualization", "GUI"],
       type: "Data Engineering"
     },
     {
       title: "Medical Chatbot Development",
       description: "A medical chatbot utilizing Large Language Models (LLMs), Pinecone for vector-based retrieval, and LangChain for seamless integration, enhancing patient interaction with accurate, context-driven medical insights.",
-      image: "/api/placeholder/400/200",
+      image: medicalChatbotImg,
       tags: ["LLM", "Pinecone", "LangChain", "Healthcare"],
       type: "AI/ML"
     },
     {
       title: "COVID-19 Hospital Management System",
       description: "Designed a hospital management system using HTML, CSS, JavaScript, and MySQL to facilitate real-time booking of hospital beds.",
-      image: "/api/placeholder/400/200",
+      image: covidSystemImg,
       tags: ["HTML", "CSS", "JavaScript", "MySQL"],
       type: "Web Development"
     }
@@ -43,17 +46,20 @@ const Portfolio = () => {
       category: "Programming & Tools",
       items: [
         { name: "Python", level: "Expert" },
-        { name: "SQL/PL/SQL", level: "Expert" },
-        { name: "Java", level: "Advanced" },
-        { name: "JavaScript", level: "Advanced" },
-        { name: "AWS", level: "Advanced" }
+        { name: "SQL/PL/SQL,PostgreSQL", level: "Expert" },
+        { name: "Java", level: "intermediate" },
+        { name: "JavaScript", level: "Intermediate" },
+        { name: "AWS services (EC2, S3, RDS),", level: "Advanced" },
+        { name: "Git, Excel, sharepoint", level: "Advanced" },
+        { name: "Tableau, Power BI", level: "Advanced" }
+        
       ]
     },
     {
       category: "Data Science & AI",
       items: [
         { name: "Machine Learning", level: "Advanced" },
-        { name: "TensorFlow", level: "Advanced" },
+        { name: "TensorFlow", level: "Intermediate" },
         { name: "PyTorch", level: "Advanced" },
         { name: "EDA", level: "Expert" },
         { name: "scikit-learn", level: "Expert" }
@@ -66,7 +72,10 @@ const Portfolio = () => {
         { name: "Data Warehousing", level: "Expert" },
         { name: "Kafka", level: "Advanced" },
         { name: "Spark", level: "Advanced" },
-        { name: "Data Modeling", level: "Expert" }
+        { name: "Data Modeling", level: "Expert" },
+        { name: "VS Code", level: "Expert" },
+        { name: "Airflow, Docker, Kubernetes", level: "Advanced" }
+
       ]
     }
   ];
@@ -78,10 +87,11 @@ const Portfolio = () => {
       location: "New York, USA",
       period: "Jul 2024 - Oct 2024",
       highlights: [
-        "Designed and implemented comprehensive data pipelines integrating diverse data formats",
-        "Automated ETL processes with Airflow, Kubernetes, and Docker, increasing speed by 40%",
-        "Implemented data warehousing solution on GCP, improving efficiency by 25%",
-        "Optimized SQL queries, enhancing data access speed by 35%"
+        "ETL Development: Designed and implemented an ETL pipeline to integrate diverse data formats (CSV, JSON, XML) from websites and APIs using Python, PostgreSQL, and Amazon S3.",
+        "Process Automation: Automated ETL workflows using Airflow, Kubernetes, and Docker, improving execution speed and reliability.",
+        "Development & Version Control: Utilized VS Code and Git for efficient code management throughout the project lifecycle.",
+        "Data Warehousing: Developed a robust data warehousing solution on GCP with history tables, enhancing data management efficiency.",
+        "SQL Optimization & Reporting: Optimized SQL queries, improving data retrieval speed and accuracy by 35%, and contributed to Power BI dashboards for KPI tracking and enhanced reporting.",
       ]
     },
     {
@@ -90,9 +100,23 @@ const Portfolio = () => {
       location: "Illinois, USA",
       period: "May 2023 - Jun 2024",
       highlights: [
-        "Implemented ML algorithms in SAS Studio, enhancing precision by 35%",
-        "Managed student database using Python and SQL, improving speed by 25%",
-        "Created Tableau dashboards improving decision-making by 20%"
+        "Marketing Data Integration: Developed an ETL pipeline using Python and SQL to unify marketing data from Google Analytics, social media, email, and CRM into a centralized data warehouse for analysis.",
+        "Data Visualization: Created Tableau dashboards improving decision-making by 20%.",
+        "Statistical Analysis: Implemented ML algorithms in SAS Studio, enhancing precision by 35%.",
+        "Database Management: Managed student database using Python and SQL, improving speed by 25%."
+        
+      ]
+    },
+    {
+      company: "Accenture",
+      role: "Data Engineer",
+      location: "Bengaluru",
+      period: "Mar 2021 - Jul 2022",
+      highlights: [
+       "Collaboration & Business Impact: Worked closely with cross-functional teams and senior analysts to gather requirements, design data models, and translate business needs into technical solutions, improving application efficiency by 20%.",
+       "Streaming & Big Data Processing: Developed scalable ETL pipelines leveraging Python, SQL, Apache Kafka, and Spark, processing 10TB/day and improved ingestion speed.",
+       "Database Performance Tuning: Optimized Oracle and PostgreSQL databases with indexing, partitioning, and materialized views, enhancing query speed by 5x.",
+       "SQL & Oracle Development: Developed and maintained SQL scripts, stored procedures, and Oracle packages for banking and financial operations (customer data, transactions, regulatory reporting), ensuring GDPR compliance by optimizing queries, including complex joins and subqueries, for efficient data manipulation."
       ]
     },
     {
@@ -101,9 +125,9 @@ const Portfolio = () => {
       location: "Bengaluru",
       period: "Jul 2022 - Dec 2022",
       highlights: [
-        "Built recommender system for hedge fund sales",
-        "Optimized backend infrastructure using Flask, PostgreSQL, and AWS services",
-        "Reduced latency by 40% through infrastructure optimization"
+       "AI & Data Engineering: Built a hedge fund recommender system and conducted real estate market analysis using Python, SQL, and ML techniques.",
+       "Backend Optimization: Designed and optimized backend infrastructure with Flask, PostgreSQL, AWS (EC2, S3, RDS), and Unix, reducing latency by 40%.",
+       "Scripting & Automation: Proficient in Python, Shell scripting, and PowerShell for automating workflows, reducing downtime by 30%.",
       ]
     }
   ];
@@ -179,6 +203,14 @@ const Portfolio = () => {
                   {section}
                 </a>
               ))}
+            <div className="w-64 h-64 mb-8 rounded-full border-4 border-blue-400 overflow-hidden">
+              <img
+                src={profilePic}
+                alt="Niharika Prathi"
+              className="w-full h-full object-cover"
+              />
+             </div>
+            
             </div>
           </div>
         </div>
@@ -192,8 +224,8 @@ const Portfolio = () => {
               Hi, I'm Niharika Prathi 👋
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl">
-              A passionate Data Engineer & Data Scientist with extensive experience in building robust data pipelines,
-              implementing machine learning solutions, and driving data-driven decisions.
+            A passionate data enthusiast with a knack for building rock-solid data pipelines, crafting machine learning magic, and making data-driven decisions look easy.
+             I thrive on digging deep into data, analyzing trends, and collaborating with business minds to turn numbers into action!
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a
@@ -222,7 +254,7 @@ const Portfolio = () => {
             Featured Projects
           </h3>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {['All', 'Data Engineering', 'AI/ML', 'Web Development'].map(filter => (
+            {['All', 'Data Engineering&Analysis', 'AI/ML', 'Web Development'].map(filter => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
@@ -327,7 +359,7 @@ const Portfolio = () => {
       <section id="contact" className="py-20 bg-gray-900">
         <div className="max-w-6xl mx-auto px-6">
           <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Get in Touch
+              Let’s Make Data Magic Together: If you're looking for someone to transform data into powerful insights, craft seamless pipelines, or sprinkle some machine learning magic, don’t hesitate to reach out—I’d love to chat!
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <a 
@@ -355,7 +387,7 @@ const Portfolio = () => {
               <p className="text-gray-400">Connect with me</p>
             </a>
             <a 
-              href="https://github.com/yourusername"
+              href="https://github.com/niha3101"
               className="bg-gray-800 p-6 rounded-xl border border-gray-700 transform transition-all duration-300 hover:scale-105"
             >
               <Github className="w-8 h-8 mb-4 text-gray-400" />
