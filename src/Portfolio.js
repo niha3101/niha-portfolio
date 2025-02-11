@@ -62,7 +62,10 @@ const Portfolio = () => {
         { name: "TensorFlow", level: "Intermediate" },
         { name: "PyTorch", level: "Advanced" },
         { name: "EDA", level: "Expert" },
-        { name: "scikit-learn", level: "Expert" }
+        { name: "scikit-learn", level: "Expert" },
+        { name: "statistical analysis", level: "Advanced" },
+        { name: "A/B testing", level: "Intermediate" }
+
       ]
     },
     {
@@ -203,14 +206,6 @@ const Portfolio = () => {
                   {section}
                 </a>
               ))}
-            <div className="w-64 h-64 mb-8 rounded-full border-4 border-blue-400 overflow-hidden">
-              <img
-                src={profilePic}
-                alt="Niharika Prathi"
-              className="w-full h-full object-cover"
-              />
-             </div>
-            
             </div>
           </div>
         </div>
@@ -218,34 +213,43 @@ const Portfolio = () => {
 
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center md:text-left">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Hi, I'm Niharika Prathi 👋
-            </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl">
-            A passionate data enthusiast with a knack for building rock-solid data pipelines, crafting machine learning magic, and making data-driven decisions look easy.
-             I thrive on digging deep into data, analyzing trends, and collaborating with business minds to turn numbers into action!
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a
-                href="https://www.linkedin.com/in/niharika-prathi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <Linkedin className="mr-2" size={20} /> Connect on LinkedIn
-              </a>
-              <a
-                href="mailto:niharikaprathi3@gmail.com"
-                className="flex items-center bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <Mail className="mr-2" size={20} /> Get in Touch
-              </a>
-            </div>
-          </div>
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center md:text-left">
+      <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        Hi, I'm Niharika Prathi 👋
+      </h2>
+      <p className="text-xl text-gray-400 mb-8 max-w-2xl">
+        A passionate data enthusiast with a knack for building rock-solid data pipelines, crafting machine learning magic, and making data-driven decisions look easy.
+        I thrive on digging deep into data, analyzing trends, and collaborating with business minds to turn numbers into action!
+      </p>
+      <div className="flex items-center justify-between w-full">
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://www.linkedin.com/in/niharika-prathi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Linkedin className="mr-2" size={20} /> Connect on LinkedIn
+          </a>
+          <a
+            href="mailto:niharikaprathi3@gmail.com"
+            className="flex items-center bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Mail className="mr-2" size={20} /> Get in Touch
+          </a>
         </div>
-      </section>
+        <div className="w-64 h-64 rounded-full border-4 border-blue-400 overflow-hidden">
+          <img
+            src={profilePic}
+            alt="Niharika Prathi"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-900">
